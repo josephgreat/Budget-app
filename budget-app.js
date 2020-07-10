@@ -21,7 +21,6 @@ const budget = document.querySelector(".budget p");
 const expense = document.querySelector(".expense p");
 const balance = document.querySelector(".balance p");
 const tableBody = document.querySelector("tbody");
-const changeBudget = document.querySelector(".change-budget button")
 let expenseEditName;
 let expenseEditAmount;
 let expenseList = [];

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width initial-scale=1">
+    <title>Budget App</title>
+    <link type="text/css" rel="stylesheet" href="budget-app.css">
+</head>
+<body>
+    <div class="load">
+        <div id="animation">
+            <div class="title"><span class="span">BUDGET</span><span class="span2">app</span></div>
+            <div class="progress">
+                <div class="progress-bar">Loading...</div>
+            </div>
+        </div>
+        <div class="budget-type">
+            <div class="currency">
+                <p>Please choose your currency</p>
+                <select>
+                    <option>Dollar</option>
+                    <option>Cent</option>
+                    <option>Pound</option>
+                    <option>Naria</option>
+                    <option>Cedi</option>
+                </select>
+            </div>
+            <h2>What kind of budget do you want to do</h2>
+        
+                <ul>
+                    <li class="budget_home"><a>Budget for Home management</a></li>
+                    <li class="budget_office"><a>Budget for Office Expenditures</a></li>
+                    <li class="budget_salaries"><a>Budget for Salary</a></li>
+                    <li class="others">Others <input type="text"> <button>Done</button></li>
+                </ul>
+            </form>
+
+        </div>
+    </div>
+    <div class="container">
+        <h1><span class="span">BUDGET</span><span class="span2">app</span> <span class="budget-choosen"></span></h1>
+        <div class="row">
+        <div class="budget-form col-5 col-sm-12">
+            <div class="error-alert budget-error-alert">  
+            </div>
+            <div class="budget-amount">
+                <p>please enter your budget amount</p>
+                <input type="number">
+                <button class="budget-shade">Calculate</button>
+            </div>
+            <div class="error-alert expense-error-alert ">
+                
+            </div>
+            <div class="expense-input">
+                
+                <div class="expense-name">
+                    <p>please enter your expense</p>
+                    <input type="text">
+                </div>
+                <div class="expense-amount">
+                    <p>please enter your expense amount</p>
+                    <input type="number">
+                </div>
+
+                <button class="expense-shade">Add expense</button>
+            </div>
+            <div class="currency-change">
+                <p>Change currency</p>
+                <select>
+                    <option>Dollar</option>
+                    <option>Cent</option>
+                    <option>Pound</option>
+                    <option>Naria</option>
+                    <option>Cedi</option>
+                </select>
+            </div>
+            <div class="change-budget">
+                <button>Change Budget</button>
+            </div>
+        </div>
+        <div class="budget-display col-7 col-sm-12">
+            <div class="budget-expense row">
+               <div class="budget col-4">
+                   <h3>Budget</h3>
+                   <div class="img">
+                       &#x1F4B0;
+                   </div>
+                   <p><span class="currency-type"></span>0</p>
+               </div> 
+               <div class="expense col-4">
+                    <h3>Expense</h3>
+                    <div class="img">
+                        &#9000;
+                    </div>
+                    <p><span class="currency-type"></span>0</p>
+                </div> 
+                <div class="balance col-4">
+                    <h3>Balance</h3>
+                    <div class="img">
+                        <span class="currency-type"></span>
+                    </div>
+                    <p><span class="currency-type"></span>0</p>
+                </div> 
+            </div>
+            <h2>Expense List</h2>
+            <div class="expense-des">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Expense Title</th>
+                            <th>Expense Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script src="budget-app.js"></script>
+</body>
+</html>

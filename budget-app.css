@@ -1,0 +1,368 @@
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+}
+.row{display: flex;}
+.col-1 {flex: 8.33%}
+.col-2 {flex: 16.67%}
+.col-3 {flex: 25%}
+.col-4 {flex: 33.32%}
+.col-5 {flex: 41.65%}
+.col-6 {flex: 50%}
+.col-7 {flex: 58.33%}
+.col-8 {flex: 66.64%}
+.col-9 {flex: 75%}
+.col-10 {flex: 83.3%}
+.col-11 {flex: 91.63%}
+.col-12 {flex: 100%}
+
+:root{
+    --budget-color: #8fd044; 
+    --expense-color:  #fd0303ba;
+    --balance-color: #03A9F4; 
+}
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #eee, transparent);
+}
+
+.load{
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+#animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    animation: sliding 3s;
+}
+#animation .title {
+    font-size: 4rem;
+    font-weight: 700;
+    animation: blink 5s 3s;
+}
+.span{
+    color: var(--budget-color);
+}
+.span2 {
+    color: var(--expense-color);
+}
+
+#animation .progress {
+    /* width: 30%; */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: aliceblue;
+    margin: 30px 0;
+}
+#animation .progress .progress-bar{
+    width: 0%;
+    animation: loading 7s 3s forwards;
+    background-color: var(--balance-color);
+    text-align: center;
+}
+@keyframes sliding{
+    0%{top: 0%}
+    40%{top: 50%}
+    80%{top: 40%}
+    100%{top: 50%}
+}
+@keyframes blink{
+    0%{opacity: 0;}
+    25%{opacity: 0.5;}
+    50%{opacity: 0;}
+    75%{opacity: 0.8;}
+    100%{opacity: 1;}
+}
+@keyframes loading{
+    from{width: 0%}
+    to{width: 100%}
+}
+
+.budget-type{
+    display: none;
+    padding: 30px;
+    box-shadow: 3px 4px 8px 6px #444;
+    border-radius: 10px;
+    background-color: #eeeeee;
+}
+select {
+    border: none;
+    background: linear-gradient(45deg, var(--budget-color), var(--expense-color));
+    padding: 10px 25px 10px 15px;
+    border-radius: 6px;
+    color: aliceblue;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+select option {
+    color: lightgoldenrodyellow;
+    background: var(--balance-color);
+}
+.budget-type h2 {
+    text-shadow: 2px 3px 3px #777;
+}
+.budget-type ul {
+    padding: 0px;
+    list-style: none;
+    font-size: 20px;
+}
+.budget-type ul li {
+    padding: 10px 0;
+    color: var(--balance-color);
+}
+.budget-type ul li a {
+    text-decoration: underline;
+    color: inherit;
+    cursor: pointer;
+    transition: .5s;
+}
+.budget-type ul li a:hover{
+    color: var(--expense-color);
+    text-decoration: none;
+}
+.budget-type ul li input {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #555;
+    width: 50%;
+    margin: 0 10px;
+    background: transparent;
+    font-size: 15px;
+}
+.budget-type ul li button {
+    padding: 4px 10px;
+    border: none;
+    background-color: var(--expense-color);
+    color: #fff;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: .5s;
+}
+.budget-type ul li button:hover{
+    background-color: var(--budget-color);
+}
+.container{
+    padding: 50px;
+    text-transform: capitalize;
+    position: absolute;
+    width: 100%;
+    display: none;
+    animation: slide 1s;
+}
+@keyframes slide{
+    from{left: -100vh}
+    to{left: 0}
+}
+.container h1{
+    margin-left: 25px;
+    /* display: flex; */
+}
+.container h1 .budget-choosen{
+    float: right;
+    color: var(--balance-color);
+    font-size: 15px;
+    margin-top: 5px;
+}
+.container .budget-form, .container .budget-display{
+    margin: 0 25px;
+}
+
+.container .budget-display{
+    text-align: center;
+}
+
+.container .budget-amount, .container .expense-input{
+    border: 1px solid;
+    border-color: #ccc;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin: 20px auto;
+    width: 90%;
+}
+.container .budget-amount{
+    border-color: var(--budget-color);
+    /* margin: 0 auto; */
+    transition: 1s ;
+}
+.container .expense-input{
+    transition: 1s ;
+    /* margin: 0 auto; */
+    border-color: var(--expense-color);
+}
+
+.container input{
+    width: 90%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 7px;
+    outline: none;
+}
+
+.container .budget-amount input{
+    border-color: var(--budget-color);
+}
+.container .expense-input input{
+    border-color: var(--expense-color);
+}
+
+.container .budget-form .error-alert {
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 10px;
+    background-color: #cc3030;
+    color: aliceblue;
+    width: 90%;
+    animation: error .7s;
+    display: none;
+    margin: auto;
+}
+@keyframes error{
+    from{opacity: 0;}
+    top{opacity: 1;}
+}
+.show-error{
+    display: block !important;
+}
+
+.container button{
+    /* display: block; */
+    margin: 10px 0;
+    padding: 5px 9px;
+    /* background-color: #ccc; */
+    border: 0.5px solid;
+    border-color: #999;
+    border-radius: 7px;
+    outline: none;
+    cursor: pointer;
+}
+
+.container .budget-form .expense-input .expense-shade{
+    color: var(--expense-color);
+    border-color: var(--expense-color);
+    transition: .5s;
+}
+.container .budget-form .expense-input .expense-shade:hover{
+    background-color: var(--expense-color);
+    color: #fff;
+}
+.container .budget-form .budget-shade{
+    border-color: var(--budget-color);
+    transition: .5s;
+    color: var(--budget-color);
+}
+.container .budget-form .budget-shade:hover{
+    background-color: var(--budget-color);
+    color: #fff;
+}
+
+.container .budget-display .budget-expense{
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    border-color: var(--expense-color);
+}
+.container .budget-display .budget-expense p{
+    font-size: 2.4rem;
+}
+
+
+.container .budget-display .budget-expense .budget p{
+    color: var(--budget-color);
+}
+.container .budget-display .budget-expense .expense p{
+    color: var(--expense-color);
+}
+.container .budget-display .budget-expense .balance p{
+    color: #777;
+}
+
+.container .budget-display .budget-expense .img{
+    color: var(--balance-color);
+    font-size: 4rem;
+    height: 80px;
+    position: relative;
+}
+.container .budget-display .budget-expense .budget .img{
+    top: -2px;
+}
+.container .budget-display .budget-expense .expense .img{
+    top: 4px;
+}
+.container .budget-display .expense-des{
+    height: 200px;
+    overflow: scroll;
+    margin: 40px 0;
+}
+.container .budget-display .expense-des table{
+    text-align: left;
+    width: 80%;
+    margin: auto;
+}
+tr {
+    display: flex;
+}
+th:first-child {
+    flex: 0 0 50%;
+}
+td:first-child {
+    flex: 0 0 50%;
+}
+td:nth-child(2) {
+    flex: 0 0 30%;
+}
+.container table tbody tr td button {
+    margin: 0;
+}
+.container .budget-display .expense-des table tbody td {
+    color: var(--expense-color);
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.container .budget-display .expense-des .edit, .container .budget-display .expense-des .remove {
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+} 
+.container .budget-display .expense-des .edit{
+    color: var(--balance-color);
+}
+.container .budget-display .expense-des .remove{
+    color: var(--expense-color);
+}
+
+/* mobile responsive */
+@media (min-width: 300px) and (max-width: 768px){
+    body{overflow: visible;}
+    #animation{flex: 0 0 70%;}
+    #animation .title{font-size: 3rem;}
+    .budget-type{flex: 0 0 90%;}
+    .container{padding: unset;}
+    .container h1{text-align: center;}
+    .container h1 .budget-choosen{float: unset; display: block;}
+    .container .budget-display .expense-des table{width: 100%;}
+    .row{flex-direction: column;}
+    .col-sm-1 {flex: 8.33%}
+.col-sm-2 {flex: 16.67%}
+.col-sm-3 {flex: 25%}
+.col-sm-4 {flex: 33.32%}
+.col-sm-5 {flex: 41.65%}
+.col-sm-6 {flex: 50%}
+.col-sm-7 {flex: 58.33%}
+.col-sm-8 {flex: 66.64%}
+.col-sm-9 {flex: 75%}
+.col-sm-10 {flex: 83.3%}
+.col-sm-11 {flex: 91.63%}
+.col-sm-12 {flex: 100%}
+}
+
+
